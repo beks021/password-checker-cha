@@ -5,16 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Password Strength Checker</title>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Chicago_Housing_Authority_logo.svg/1200px-Chicago_Housing_Authority_logo.svg.png') no-repeat center top;
+      background-size: 120px;
+      background-position: center 20px;
+      transition: background-color 0.3s;
+    }
+    .dark-mode {
+      background-color: #121212; background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Cabrini_Green_rowhouses.jpg/1200px-Cabrini_Green_rowhouses.jpg'); background-size: cover; background-attachment: fixed;
+      color: white;
+    }
+    .container {
+      margin-top: 160px;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .dark-mode .container {
+      background: #1e1e1e;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .reminder {
+      font-size: 13px;
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .headline {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    #strength-bar {
+      height: 10px;
+      width: 100%;
+      background: #ddd;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+    #strength-bar.fill-weak {
+      background-color: red;
+      width: 33%;
+    }
+    #strength-bar.fill-medium {
+      background-color: orange;
+      width: 66%;
+    }
+    #strength-bar.fill-strong {
+      background-color: green;
+      width: 100%;
+    }
+    .tooltip {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .dark-mode .tooltip {
+      color: #ccc;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
 </head>
-<body>
+<body class="dark-mode">
   <div class="container">
-    <h2>Check Password Strength</h2>
+    <div class="headline">Check Your Ability to Create a Reliable Password</div>
     <input type="password" id="password" placeholder="Enter password" oninput="checkPassword()"/>
+<label><input type="checkbox" onclick="togglePassword()"> Show Password</label>
     <div id="strength-bar"></div>
     <p id="feedback"></p>
     <p><strong>Character Count:</strong> <span id="char-count">0</span></p>
     <p><strong>Estimated Crack Time:</strong> <span id="crack-time">N/A</span></p>
     <p><strong>Recommendation:</strong> <span id="recommendation">Use at least 12 characters with a mix of upper/lowercase, numbers, and symbols.</span></p>
+    <div class="tooltip">Tip: A strong password is at least 12 characters and includes letters, numbers, and symbols.</div>
+    <div class="button-group">
+      <button onclick="suggestPassword()">Suggest Password</button>
+      <button onclick="exportCSV()">Export Result</button>
+      
+    </div>
+    <div class="reminder">⚠️ Never enter your CHA-related or personal account passwords here.</div>
+  
+    <div style="margin-top: 30px; font-size: 14px; line-height: 1.5;">
+      <h3>📤 Export Result - Why It Matters</h3>
+      <p>Exporting the password check results as a CSV file allows users and IT departments to log, monitor, or educate staff about password creation trends. It is especially helpful for training or awareness campaigns.</p>
+      <p>You can use the CSV file to:</p>
+      <ul>
+        <li>✅ Analyze how many characters people typically use</li>
+        <li>✅ Track estimated crack time patterns for educational purposes</li>
+        <li>✅ Provide feedback to users about strengthening their passwords</li>
+        <li>✅ Share anonymized results across security workshops or training materials</li>
+        <li>✅ Use as a reference to document password hygiene awareness initiatives</li>
+      </ul>
+      <p>🔒 Note: This export does not transmit or store the password externally — it's downloaded directly to your device for private use.</p>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
