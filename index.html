@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Strength Checker</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>Check Password Strength</h2>
+    <input type="password" id="password" placeholder="Enter password" oninput="checkPassword()"/>
+    <div id="strength-bar"></div>
+    <p id="feedback"></p>
+    <p><strong>Character Count:</strong> <span id="char-count">0</span></p>
+    <p><strong>Estimated Crack Time:</strong> <span id="crack-time">N/A</span></p>
+    <p><strong>Recommendation:</strong> <span id="recommendation">Use at least 12 characters with a mix of upper/lowercase, numbers, and symbols.</span></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

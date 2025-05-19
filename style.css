@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.container {
+  width: 300px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#strength-bar {
+  height: 10px;
+  width: 100%;
+  background: #ddd;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+#strength-bar.fill-weak {
+  background-color: red;
+  width: 33%;
+}
+
+#strength-bar.fill-medium {
+  background-color: orange;
+  width: 66%;
+}
+
+#strength-bar.fill-strong {
+  background-color: green;
+  width: 100%;
+}
+
+#feedback {
+  font-weight: bold;
+}
